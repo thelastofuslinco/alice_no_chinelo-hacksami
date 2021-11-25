@@ -12,7 +12,7 @@ const RouterSelect = () => {
   const [buttonIndex, setButtonIndex] = useState(0)
 
   useEffect(() => {
-    if (pathname === '/') setButtonIndex('0')
+    if (pathname === '/home') setButtonIndex('0')
     else if (pathname === '/network') setButtonIndex(1)
     else if (pathname === '/messages') setButtonIndex(2)
     else if (pathname === '/health') setButtonIndex(3)
@@ -29,7 +29,7 @@ const RouterSelect = () => {
         pathname={pathname === '/'}
         onClick={() => {
           setButtonIndex(0)
-          navigate('/')
+          navigate('/home')
         }}
       >
         <AiOutlineHome />
