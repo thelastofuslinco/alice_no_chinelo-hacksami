@@ -34,7 +34,7 @@ const Home = () => {
           <SubTitle>A Beneficiência Portuguesa de São Paulo</SubTitle>
           <BpLogo />
         </HeaderProfile>
-        <div class="rate">
+        <div className="rate">
           <input
             type="radio"
             id="star1"

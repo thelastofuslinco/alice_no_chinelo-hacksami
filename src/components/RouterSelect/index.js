@@ -17,7 +17,7 @@ const RouterSelect = () => {
     else if (pathname === '/messages') setButtonIndex(2)
     else if (pathname === '/health') setButtonIndex(3)
     else if (pathname === '/profile') setButtonIndex(4)
-  })
+  }, [pathname])
 
   return (
     <RouterSelectContainer

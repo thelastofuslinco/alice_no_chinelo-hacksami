@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Network from './pages/Network'
 import Messages from './pages/Messages'
@@ -9,6 +9,10 @@ import Avalicao from './pages/Avaliacao'
 import RouterSelect from './components/RouterSelect'
 
 function App () {
+  const usePathname = () => {
+    const location = useLocation();
+    return location.pathname;
+  }
   return (
     <div>
       <Routes>
@@ -19,6 +23,7 @@ function App () {
         <Route path='Profile' element={<Profile />} />
         <Route path='avaliacao/:parceiro' element={<Avalicao />} />
       </Routes>
+      {!usePathname().startsWith('/avaliacao/') && <RouterSelect />}
     </div>
   )
 }
