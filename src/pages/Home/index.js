@@ -9,6 +9,7 @@ import { ReactComponent as IconNotification } from './icon_header_1.svg'
 import { ReactComponent as IconHelper } from "./icon_header_2.svg";
 import { ReactComponent as Arrow } from "./chevron_right_24px.svg";
 import { ReactComponent as Treasure } from "./treasure.svg";
+import { ReactComponent as Star } from "./star.svg";
 
 import {
   HeaderProfile,
@@ -29,9 +30,35 @@ import {
   Root,
   TextContainer,
   SubTitle,
+  Bagde,
+  PopoverNotification,
+  PopoverTitle,
+  PopoverSubTitle,
+  PopoverIconContainer
 } from "./index.style";
+import { useNavigate } from "react-router";
+import { Popover, ArrowContainer } from 'react-tiny-popover'
+import { useState } from "react";
 
 const Home = () => {
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const hasNotification = () => {
+    return !window.localStorage.getItem("rating");
+  }
+
+  const openNotification = () => {
+    if (!window.localStorage.getItem("rating")) {
+      setIsPopoverOpen(prevState => !prevState);
+    }
+  }
+  
+  const ratePartner = () => {
+    navigate('/avaliacao/beneficiencia-portuguesa')
+  }
+
   return (
     <Root>
       <SectionHeader>
@@ -41,13 +68,42 @@ const Home = () => {
         </Container>
         <Container>
           <Container>
-            <ShotcutIconHeader>
-              <IconNotification />
-            </ShotcutIconHeader>
+            <Popover
+              isOpen={isPopoverOpen}
+              positions={['bottom']}
+              align="end"
+              minWidth={250}
+              onClickOutside={() => setIsPopoverOpen(false)}
+              reposition={false}
+              content={({ position, childRect, popoverRect }) => (
+                <ArrowContainer
+                  position={position}
+                  childRect={childRect}
+                  popoverRect={popoverRect}
+                  arrowColor={'white'}
+                  arrowSize={10}
+                >
+                  <PopoverNotification onClick={ratePartner}>
+                    <PopoverIconContainer>
+                      <Star />
+                    </PopoverIconContainer>
+                    <ShortcutContainer popover>
+                      <PopoverTitle>Quer ganhar mais 25 pontos?</PopoverTitle>
+                      <PopoverSubTitle>10 minutos atrás</PopoverSubTitle>
+                    </ShortcutContainer>
+                  </PopoverNotification>
+                </ArrowContainer>
+              )}
+            >
+              <ShotcutIconHeader onClick={openNotification}>
+                <IconHelper />
+                {hasNotification() && <Bagde>1</Bagde>}
+              </ShotcutIconHeader>
+            </Popover>
           </Container>
           <Container>
             <ShotcutIconHeader>
-              <IconHelper />
+              <IconNotification />
             </ShotcutIconHeader>
           </Container>
         </Container>
