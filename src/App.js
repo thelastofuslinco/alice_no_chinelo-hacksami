@@ -24,7 +24,8 @@ function App () {
         <Route path='network' element={<Network />} />
         <Route path='messages' element={<Messages />} />
         <Route path='health' element={<Health />} />
-        <Route path='Profile' element={<Profile />} />
+        <Route path='profile' element={<Profile />} />
+        <Route path='profile/points' element={<div>avaliação</div>} />
         <Route path='avaliacao/:parceiro' element={<Avalicao />} />
       </Routes>
       {!usePathname().startsWith('/avaliacao/') && <RouterSelect />}

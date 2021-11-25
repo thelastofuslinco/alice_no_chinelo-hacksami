@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const RouterSelectContainer = styled.div`
+  background-color: #fff;
   border-top: 1px solid black;
   height: 10vh;
   position: fixed;
