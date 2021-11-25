@@ -5,6 +5,7 @@ import Network from './pages/Network'
 import Messages from './pages/Messages'
 import Health from './pages/Health'
 import Profile from './pages/Profile'
+import Avalicao from './pages/Avaliacao'
 import RouterSelect from './components/RouterSelect'
 
 function App () {
@@ -16,8 +17,8 @@ function App () {
         <Route path='messages' element={<Messages />} />
         <Route path='health' element={<Health />} />
         <Route path='Profile' element={<Profile />} />
+        <Route path='avaliacao/:parceiro' element={<Avalicao />} />
       </Routes>
-      <RouterSelect />
     </div>
   )
 }
