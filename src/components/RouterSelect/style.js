@@ -4,7 +4,7 @@ export const RouterSelectContainer = styled.div`
   background-color: #fff;
   border-top: 1px solid black;
   height: 10vh;
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
   display: grid;

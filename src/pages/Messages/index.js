@@ -1,4 +1,10 @@
+import styled from 'styled-components'
+
+export const Container = styled.div`
+  height: 100vh;
+`
+
 const Messages = () => {
-  return <div>Messages</div>
+  return <Container>Messages</Container>
 }
 export default Messages

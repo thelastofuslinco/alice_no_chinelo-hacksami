@@ -1,4 +1,9 @@
+import styled from 'styled-components'
+
+export const Container = styled.div`
+  height: 100vh;
+`
 const Network = () => {
-  return <div>Network</div>
+  return <Container>Network</Container>
 }
 export default Network

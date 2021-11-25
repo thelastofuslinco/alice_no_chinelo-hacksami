@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  height: 90vh;
+  height: 100%;
   display: grid;
   background-color: #0d0050;
   grid-template-rows: 1fr 2fr;
@@ -52,6 +52,7 @@ export const Container = styled.div`
         &:nth-child(2) {
           margin-bottom: 30px;
           border-radius: 0 0 8px 8px;
+          cursor: pointer;
 
           border-top: 1px solid #e6e6e6;
         }
@@ -75,6 +76,7 @@ export const Container = styled.div`
 
         &:nth-child(8) {
           border-radius: 0 0 8px 8px;
+          margin-bottom: 20px;
         }
       }
     }
