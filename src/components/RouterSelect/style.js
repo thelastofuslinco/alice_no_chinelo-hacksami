@@ -6,7 +6,8 @@ export const RouterSelectContainer = styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   justify-content: space-evenly;
 
   &::before {
@@ -31,8 +32,8 @@ export const RouterSelectButton = styled.button`
   color: ${props => (props.pathname ? 'red' : '')};
   transition: 0.5s;
   > svg {
-    height: 1.3rem;
-    width: 1.3em;
+    height: 2rem;
+    width: 2em;
     padding-bottom: 10px;
   }
 `

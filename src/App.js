@@ -6,10 +6,14 @@ import Messages from './pages/Messages'
 import Health from './pages/Health'
 import Profile from './pages/Profile'
 import RouterSelect from './components/RouterSelect'
-
+import styled from 'styled-components'
+export const Container = styled.div`
+  /* max-width: 414px; 
+max-height: 736px; */
+`
 function App () {
   return (
-    <div>
+    <Container>
       <Routes>
         <Route path='home' element={<Home />} />
         <Route path='network' element={<Network />} />
@@ -18,7 +22,7 @@ function App () {
         <Route path='Profile' element={<Profile />} />
       </Routes>
       <RouterSelect />
-    </div>
+    </Container>
   )
 }
 

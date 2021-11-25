@@ -1,9 +1,11 @@
 import { RouterSelectContainer, RouterSelectButton } from './style'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { AiOutlineHome } from 'react-icons/ai'
-import { BiMessageDetail, BiBuildingHouse, BiHeart } from 'react-icons/bi'
-import { CgProfile } from 'react-icons/cg'
 import { useEffect, useRef, useState } from 'react'
+import { ReactComponent as Home } from './home.svg'
+import { ReactComponent as Profile } from './profile.svg'
+import { ReactComponent as Messages } from './messages.svg'
+import { ReactComponent as Network } from './clinical_partners_24px.svg'
+import { ReactComponent as Heart } from './inactive.icon.svg'
 
 const RouterSelect = () => {
   const navigate = useNavigate()
@@ -32,7 +34,7 @@ const RouterSelect = () => {
           navigate('/home')
         }}
       >
-        <AiOutlineHome />
+        <Home />
         Início
       </RouterSelectButton>
       <RouterSelectButton
@@ -43,7 +45,7 @@ const RouterSelect = () => {
           navigate('/network')
         }}
       >
-        <BiBuildingHouse />
+        <Network />
         Minha Rede
       </RouterSelectButton>
       <RouterSelectButton
@@ -54,7 +56,7 @@ const RouterSelect = () => {
           navigate('/messages')
         }}
       >
-        <BiMessageDetail />
+        <Messages />
         Mensagem
       </RouterSelectButton>
       <RouterSelectButton
@@ -65,7 +67,7 @@ const RouterSelect = () => {
           navigate('/health')
         }}
       >
-        <BiHeart />
+        <Heart />
         Bem-estar
       </RouterSelectButton>
       <RouterSelectButton
@@ -76,7 +78,7 @@ const RouterSelect = () => {
           navigate('/profile')
         }}
       >
-        <CgProfile />
+        <Profile />
         Perfil
       </RouterSelectButton>
     </RouterSelectContainer>
