@@ -8,17 +8,35 @@ import {
   Divider,
   Button,
   TextArea,
+  Title,
+  ModalTitle,
+  ShortcutContainer,
+  BodyPoints,
+  Points,
+  PointsContainer
 } from "./index.style";
 
 import { ReactComponent as BpLogo } from "./bp_logo.svg";
 import { ReactComponent as Arrow } from "./arrow.svg";
-import { useState } from "react";
+import { ReactComponent as Star } from "./star.svg";
+import { useState, useRef } from "react";
+import Modal from '../../components/Modal';
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const modalRef = useRef(null)
+  const navigate = useNavigate();
+
   const setValue = () => {
     window.localStorage.setItem("rating", true);
+    modalRef.current.open();
+  }
+
+  const close = () => {
+    modalRef.current.close();
+    navigate("/profile/points");
   }
   return (
     <Root>
@@ -90,11 +108,24 @@ const Home = () => {
           cols="30"
           rows="10"
           placeholder="Deixe seu comentário"
+          res
           onChange={(e) => setComment(e.target.value)}
         ></TextArea>
         <Button disabled={!comment || !rating} type="button" onClick={setValue}>
           Finalizar
         </Button>
+        <Modal ref={modalRef} fade >
+          <ModalTitle>Obrigada pela avaliação!</ModalTitle>
+          <ShortcutContainer>
+            <PointsContainer>
+              <BodyPoints>+25</BodyPoints>
+              <Points>pontos</Points>
+            </PointsContainer>
+            <Star />
+          </ShortcutContainer>
+          <Title>Seu comentário será analisado e em breve estará visível.</Title>
+          <Button onClick={close}>Muito bom!</Button>
+        </Modal>
       </Section>
     </Root>
   );

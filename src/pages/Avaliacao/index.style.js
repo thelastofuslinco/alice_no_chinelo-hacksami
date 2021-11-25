@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Root = styled.div`
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    height: 100vh;
 `
 
 export const HeaderProfile = styled.div`
@@ -21,6 +21,7 @@ export const Section = styled.section`
     padding: 0 16px;
     margin:  ${props => !props.variant && '27px 0'};
     display: flex;
+    height: ${props => props.variant && '100%'};
     flex-direction: column;
     background-color: ${props => props.variant ? '#F7F7F7' : '#FFFFFF'};
     .rate {
@@ -79,9 +80,9 @@ export const Description = styled.p`
     font-weight: 600;
     padding-top: 8px;
 `
-export const Title = styled.h2`
+export const Title = styled.span`
     color: #333;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 18px;
     margin-bottom: 4px;
     padding-top: 32px;
@@ -100,6 +101,18 @@ export const BodyText = styled.p`
     font-size: 16px;
     font-weight: 400;
     line-height: 140%;
+`
+
+export const BodyPoints = styled.h4`
+    color: #666;
+    font-size: 40px;
+    font-weight: 600;
+`
+
+export const Points = styled.span`
+    color: #999;
+    font-size: 24px;
+    font-weight: 400;
 `
 
 export const NameText = styled.span`
@@ -128,7 +141,18 @@ export const Card = styled.div`
 
 
 export const ShortcutContainer = styled.div`
+    padding: 64px 16px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    svg {
+        position: relative;
+    }
+`
 
+export const PointsContainer = styled.div`
+    position: absolute;
+    z-index: 2;
 `
 
 export const ShotcutIcon = styled.div`
@@ -179,7 +203,8 @@ export const Divider = styled.div`
 `
 
 export const Button = styled.button`
-    margin: 24px 0;
+    margin: 24px auto;
+    margin-top: auto;
     background: ${props => props.disabled ? '#F7F7F7' : 'linear-gradient(256.45deg, #ED3957 5.25%, #F8524B 95.8%)'} ;
     padding: 16px 24px;
     display: flex;
@@ -190,13 +215,16 @@ export const Button = styled.button`
     border-radius: 36px;
     border: none;
     color:  ${props => props.disabled ? '#CCCCCC' : '#FFFFFF'};
-    font-weight: 600;
+    font-weight: normal;
     font-size: 18px;
     cursor: pointer;
+    max-width: 400px;
+    width: 100%;
 `
 
 export const TextArea = styled.textarea`
     border: 1px solid #999999;
+    resize: none;
     border-radius: 8px;
     background: #FFFFFF;
     color: #666666;
@@ -212,4 +240,10 @@ export const TextArea = styled.textarea`
         font-family: 'Lato', sans-serif;
         font-weight: normal;
     }
+`
+
+export const ModalTitle = styled.h3`
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
 `
